@@ -6,6 +6,11 @@ class Database
 {
     private $connection;
 
+    public function __construct()
+    {
+        $this->open_db_connection();
+    }
+
     public function open_db_connection()
     {
         $this->connection = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
@@ -15,11 +20,3 @@ class Database
         }
     }
 }
-
-
-$database = new Database();
-
-$database->open_db_connection();
-
-
-
