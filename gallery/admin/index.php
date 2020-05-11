@@ -2,12 +2,12 @@
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <?= include('includes/top_nav.php') ?>
-            <?= include('includes/side_nav.php') ?>
+            <?php include('includes/top_nav.php'); ?>
+            <?php include('includes/side_nav.php'); ?>
         </nav>
 
         <div id="page-wrapper">
-            <?= include('includes/admin_content') ?>
+            <?php include('includes/admin_content.php'); ?>
         </div>
         <!-- /#page-wrapper -->
 
