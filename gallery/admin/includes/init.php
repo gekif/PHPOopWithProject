@@ -1,4 +1,4 @@
 <?php
 
-include('config.php');
+include('dbconfig.php');
 include('database.php');

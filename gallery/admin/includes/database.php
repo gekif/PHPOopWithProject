@@ -1,10 +1,9 @@
 <?php
-
-require_once('config.php');
+require_once('dbconfig.php');
 
 class Database
 {
-    private $connection;
+    public $connection;
 
     public function __construct()
     {
@@ -20,3 +19,6 @@ class Database
         }
     }
 }
+
+
+$database = new Database();
