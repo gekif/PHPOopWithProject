@@ -5,10 +5,12 @@ class Database
 {
     public $connection;
 
+
     public function __construct()
     {
         $this->open_db_connection();
     }
+
 
     public function open_db_connection()
     {
@@ -17,6 +19,18 @@ class Database
         if (mysqli_connect_errno()) {
             die('Database connection failed ' . mysqli_error());
         }
+    }
+
+
+    public function query($sql)
+    {
+        $result = mysqli_query($this->connection, $sql);
+
+        if (!$result) {
+            die('Query Failed');
+        }
+
+        return $result;
     }
 }
 
