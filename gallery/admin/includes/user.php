@@ -31,20 +31,19 @@ class User
 
         $result_set = $database->query($sql);
 
-        return $result_set;
+        $the_object_array = [];
+
+        while ($row = mysqli_fetch_array($result_set)) {
+            $the_object_array[] = self::instantiation($row);
+        }
+
+        return $the_object_array;
     }
 
 
     public static function instantiation($the_record)
     {
         $the_object = new self;
-
-//        $the_object->id = $found_user['id'];
-//        $the_object->username = $found_user['username'];
-//        $the_object->password = $found_user['password'];
-//        $the_object->first_name = $found_user['first_name'];
-//        $the_object->last_name = $found_user['last_name'];
-
         foreach ($the_record as $the_attribute => $value) {
             if ($the_object->has_the_attribute($the_attribute)) {
                 $the_object->$the_attribute = $value;
@@ -52,7 +51,6 @@ class User
         }
 
         return $the_object;
-
     }
 
 
