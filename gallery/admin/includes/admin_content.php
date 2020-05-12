@@ -10,13 +10,13 @@
 
 
             <?php
-            $sql = "SELECT * FROM users WHERE id = 1";
+            $user = new User();
 
-            $result = $database->query($sql);
+            $result_set = $user->find_all_users();
 
-            $user_found = mysqli_fetch_array($result);
-
-            echo "<h2>{$user_found['username']}</h2>";
+            while ($row = mysqli_fetch_array($result_set)) {
+                echo $row['username'] . '<br>';
+            }
             ?>
 
 
