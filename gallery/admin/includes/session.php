@@ -25,6 +25,14 @@ class Session
         }
     }
 
+    public function logout()
+    {
+        unset($_SESSION['used_id']);
+        unset($this->user_id);
+
+        $this->signed_in = false;
+    }
+
     private function check_the_login()
     {
         if (isset($_SESSION['used_id'])) {
@@ -32,7 +40,10 @@ class Session
             $this->signed_in = true;
         } else {
             unset($this->user_id);
+
             $this->signed_in = false;
         }
     }
 }
+
+$session = new Session();
