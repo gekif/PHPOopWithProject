@@ -20,6 +20,7 @@ if (isset($_POST['submit'])) {
     }
 
 } else {
+    $the_message = '';
     $username = '';
     $password = '';
 }
