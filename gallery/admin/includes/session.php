@@ -9,6 +9,15 @@ class Session
     {
         session_start();
     }
-}
 
-$session = new Session();
+    private function check_the_login()
+    {
+        if (isset($_SESSION['used_id'])) {
+            $this->user_id = $_SESSION['used_id'];
+            $this->signed_in = true;
+        } else {
+            unset($this->user_id);
+            $this->signed_in = false;
+        }
+    }
+}
