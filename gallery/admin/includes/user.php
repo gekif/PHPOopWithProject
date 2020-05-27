@@ -61,7 +61,7 @@ class User
     {
         global $database;
 
-        $sql = "INSERT INO users(username, password, first_name, last_name) ";
+        $sql = "INSERT INTO users(username, password, first_name, last_name) ";
         $sql .= "VALUES ('";
         $sql .= $database->escape_string($this->username) . "', '";
         $sql .= $database->escape_string($this->password) . "', '";

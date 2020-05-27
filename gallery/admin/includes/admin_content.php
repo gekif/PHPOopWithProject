@@ -8,20 +8,16 @@
                 <small>Subheading</small>
             </h1>
 
-
             <?php
-//            $users = User::find_all_users();
+//            $user = new User();
 //
-//            foreach ($users as $user) {
-//                echo $user->username;
-//                echo '<br>';
-//            }
-
-            $found_user = User::find_user_by_id(2);
-
-            echo $found_user->username;
+//            $user->username = "Example_username";
+//            $user->password = "Example_password";;
+//            $user->first_name = "Joe";
+//            $user->last_name = "Doe";
+//
+//            $user->create();
             ?>
-
 
             <ol class="breadcrumb">
                 <li>
