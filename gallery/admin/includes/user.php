@@ -67,14 +67,10 @@ class User
     {
         global $database;
 
-        $properties = $this->properties();
+        $properties = $this->clean_properies();
 
         $sql = "INSERT INTO " . self::$db_table . "(" . implode(",", array_keys($properties)) .") ";
-        $sql .= "VALUES ('" . implode("','", array_keys($properties)) . "')";
-//        $sql .= $database->escape_string($this->username) . "', '";
-//        $sql .= $database->escape_string($this->password) . "', '";
-//        $sql .= $database->escape_string($this->first_name) . "', '";
-//        $sql .= $database->escape_string($this->last_name) . "')";
+        $sql .= "VALUES ('" . implode("','", array_values($properties)) . "')";
 
         if ($database->query($sql)) {
             $this->id = $database->the_insert_id();
@@ -91,11 +87,16 @@ class User
     {
         global $database;
 
+        $properties = $this->clean_properies();
+
+        $properties_pairs = array();
+
+        foreach ($properties as $key => $value) {
+            $properties_pairs[] = "{$key}='{$value}'";
+        }
+
         $sql = "UPDATE " . self::$db_table . " SET ";
-        $sql .= "username = '" . $database->escape_string($this->username) . "', ";
-        $sql .= "password = '" . $database->escape_string($this->password) . "', ";
-        $sql .= "first_name = '" . $database->escape_string($this->first_name) . "', ";
-        $sql .= "last_name = '" . $database->escape_string($this->last_name) . "' ";
+        $sql .= implode(", ", $properties_pairs);
         $sql .= "WHERE id = " . $database->escape_string($this->id);
 
         $database->query($sql);
@@ -153,10 +154,24 @@ class User
 
         foreach (self::$db_table_fields as $db_field) {
             if (property_exists($this, $db_field)) {
-                $properties[$db_field] = $this->db_field;
+                $properties[$db_field] = $this->$db_field;
             }
         }
 
         return $properties;
+    }
+
+
+    protected function clean_properies()
+    {
+        global $database;
+
+        $clean_properties = array();
+
+        foreach ($this->properties() as $key => $value) {
+            $clean_properties[$key] = $database->escape_string($value);
+        }
+
+        return$clean_properties;
     }
 }
