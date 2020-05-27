@@ -3,6 +3,11 @@
 class User
 {
     protected static $db_table = "users";
+    protected static $db_table_fields = array(
+        'username', 'password', 'first_name', 'last_name'
+    );
+
+
     public $id;
     public $username;
     public $password;
@@ -116,6 +121,7 @@ class User
     public static function instantiation($the_record)
     {
         $the_object = new self;
+
         foreach ($the_record as $the_attribute => $value) {
             if ($the_object->has_the_attribute($the_attribute)) {
                 $the_object->$the_attribute = $value;
@@ -142,6 +148,15 @@ class User
 
     protected function properties()
     {
-        return get_object_vars($this);
+//        return get_object_vars($this);
+        $properties = array();
+
+        foreach (self::$db_table_fields as $db_field) {
+            if (property_exists($this, $db_field)) {
+                $properties[$db_field] = $this->db_field;
+            }
+        }
+
+        return $properties;
     }
 }
