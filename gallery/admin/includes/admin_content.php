@@ -16,7 +16,7 @@
 //            $user->first_name = "Joe";
 //            $user->last_name = "Doe";
 //
-//            $user->create();
+//            $user->save();
 
 
 //            $user = User::find_user_by_id(4);
@@ -24,15 +24,13 @@
 //            $user->first_name = "Suti";
 //            $user->last_name = "Karno";
 //
-//            $user->update();
+//            $user->save();
 
 
 //            ALTER TABLE users AUTO_INCREMENT = 3
-//            $user = User::find_user_by_id(5);
+//            $user = User::find_user_by_id(4);
 //
 //            $user->delete();
-
-;
 //            ?>
 
             <ol class="breadcrumb">
