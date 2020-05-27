@@ -19,30 +19,33 @@
     <schema id="13" parent="1" name="phpmyadmin"/>
     <schema id="14" parent="1" name="test"/>
     <schema id="15" parent="1" name="webauth"/>
-    <table id="16" parent="2" name="users"/>
-    <column id="17" parent="16" name="id">
+    <schema id="16" parent="1" name="pdotest"/>
+    <schema id="17" parent="1" name="sms"/>
+    <schema id="18" parent="1" name="tmvc"/>
+    <table id="19" parent="2" name="users"/>
+    <column id="20" parent="19" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="18" parent="16" name="username">
+    <column id="21" parent="19" name="username">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="19" parent="16" name="password">
+    <column id="22" parent="19" name="password">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="20" parent="16" name="first_name">
+    <column id="23" parent="19" name="first_name">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="21" parent="16" name="last_name">
+    <column id="24" parent="19" name="last_name">
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="22" parent="16" name="PRIMARY">
+    <key id="25" parent="19" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

@@ -19,13 +19,21 @@
 //            $user->create();
 
 
-            $user = User::find_user_by_id(4);
+//            $user = User::find_user_by_id(4);
+//
+//            $user->first_name = "Suti";
+//            $user->last_name = "Karno";
+//
+//            $user->update();
 
-            $user->first_name = "Suti";
-            $user->last_name = "Karno";
 
-            $user->update();
-            ?>
+//            ALTER TABLE users AUTO_INCREMENT = 3
+//            $user = User::find_user_by_id(5);
+//
+//            $user->delete();
+
+;
+//            ?>
 
             <ol class="breadcrumb">
                 <li>

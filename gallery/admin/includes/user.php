@@ -96,6 +96,20 @@ class User
     }
 
 
+    public function delete()
+    {
+        global $database;
+
+        $sql = "DELETE from users ";
+        $sql .= "WHERE id = " . $database->escape_string($this->id);
+        $sql .= " LIMIT 1";
+
+        $database->query($sql);
+
+        return (mysqli_affected_rows($database->connection) == 1) ? true : false;
+    }
+
+
     public static function instantiation($the_record)
     {
         $the_object = new self;
