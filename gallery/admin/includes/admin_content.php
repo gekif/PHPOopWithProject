@@ -17,6 +17,14 @@
 //            $user->last_name = "Doe";
 //
 //            $user->create();
+
+
+            $user = User::find_user_by_id(4);
+
+            $user->first_name = "Suti";
+            $user->last_name = "Karno";
+
+            $user->update();
             ?>
 
             <ol class="breadcrumb">
