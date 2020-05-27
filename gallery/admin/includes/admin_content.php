@@ -19,12 +19,12 @@
 //            $user->save();
 
 
-//            $user = User::find_user_by_id(4);
-//
-//            $user->first_name = "Suti";
-//            $user->last_name = "Karno";
-//
-//            $user->save();
+            $user = User::find_user_by_id(4);
+
+            $user->first_name = "Suti";
+            $user->last_name = "Karno";
+
+            $user->save();
 
 
 //            ALTER TABLE users AUTO_INCREMENT = 3
